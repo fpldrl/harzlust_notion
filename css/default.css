@@ -1,0 +1,1428 @@
+@charset "utf-8";
+/* CSS Document */
+:root {
+    --keycolor:rgb(43, 135, 34);
+}
+/* crimson-text-regular - latin */
+@font-face {
+    font-family: 'Crimson Text';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Crimson Text Regular'), local('CrimsonText-Regular'),
+         url('../fonts/crimson-text-v10-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/crimson-text-v10-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+html,body {
+    font-family: 'Crimson Text', Georgia, serif;
+}
+input[id*="checker"]{display: none;   }
+label[for]          {cursor:  pointer;}
+
+/* Styling aus Mailscript */
+fieldset {
+    padding: 1rem;
+}
+form input, form textarea {
+    width: 200px;
+    padding: 0.2rem;
+    margin: 0.2rem 0;
+    font-family: 'Crimson Text', Georgia, serif;
+}
+
+
+
+/* ---------- SMARTPHONE ---------- */
+@media screen and (max-width:560px) {
+    /* -------------------------------------------------------- */
+    /* ----------------------------------------- */
+    /* Hero-Header der Startseite */
+    header {
+        background: url(../img/small/P5240055_4-3.jpg) no-repeat center center;
+        min-height: 30vh;
+        background-size: cover;
+    }
+    #claim {
+        color: #fff;
+        position: absolute;
+        left:50vw;
+        top:15vh;
+        transform: translateX(-50%) translateY(-50%);
+        padding:1rem;
+        text-align: center;
+    }
+    #claim p:last-of-type {
+        display:none;
+    }
+    #claim p:first-of-type {
+        font-size: 4rem;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+    }
+    #home {
+        display:none;
+    }
+    /* -------------- */
+    /* Hero-Header der Unterseiten */
+    .subpage #claim {
+        display:none;
+    }    
+    .subpage #home {
+        display:block;
+    }
+    .subpage #home a {
+        color: #fff;
+        position: absolute;
+        left:50vw;
+        top:15vh;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        font-size: 4rem;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+        text-decoration: none;
+        width:100%;
+    }
+
+    /* ----------------------------------------- */
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: 100%;
+        background: rgb(255, 255, 255);
+        z-index: 100;
+        transform: translateX(-50%) translateY(-100%);
+        transition: 0.5s;
+    }
+    #navchecker:checked ~ nav {
+        transform: translateX(-50%) translateY(0%);
+    }
+    /* burger-button --*/
+    label[for="navchecker"]{
+        position: absolute;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 35px;
+        background: white;
+        }
+    .line {
+        position: absolute;
+        left:20%;
+        width: 60%;
+        height: 2px;
+        background:black;
+        transition: 0.5s 0.5s;
+        }
+
+    .line:nth-of-type(1) { top:29%; }
+    .line:nth-of-type(2) { top:49%;right: 15%; }
+    .line:nth-of-type(3) { top:69%; }
+
+    #navchecker:checked ~ nav .line:nth-of-type(1) {
+        transform: rotate(45deg);
+        top:49%;
+    }
+    #navchecker:checked ~ nav .line:nth-of-type(2) {
+        transform: scale(0);
+    }
+    #navchecker:checked ~ nav .line:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top:49%;
+    }
+    nav ul {
+        list-style: none;
+    }
+    nav a {
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        color: black;
+        margin:1rem auto;
+    }
+    nav a:before {
+        content:"\2193";
+        padding-right:3px;
+        font-size: 0.8rem;
+    }
+    /* -------------- */
+    /* Navigation der Unterseiten */
+    .subpage nav {
+        display:none;
+    }    
+    /* -------------------------------------------------------- */
+    /* Inhalt von oben nach unten */
+    h1,h2,h3 {
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        margin: 1rem auto;
+        text-align: center;
+    }
+    article p {
+        line-height: 1.5rem;
+        margin:1rem auto 1.3rem auto;
+    }
+    main a {
+        color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        color: var(--keycolor)
+    }
+    article ul {
+        list-style-type: none;
+    }
+    article ul li {
+        margin: 1rem auto;
+    }
+    article ul a:before {
+        content: "\2192";
+        padding-right:3px;
+        font-size: 0.8rem;
+    }
+    article ul a {
+        text-decoration: none;
+    }
+
+    /* ----------------------------------------- */
+    /* Outdoor-Packages (in mobiler Variante nicht alternierend, sondern untereinder */
+    .alternierend .clearfix {
+        position:relative;
+        width: 90%;
+        margin:auto;
+    }
+    .alternierend img {
+        width: 100%;
+        margin:auto;
+        height:200px;
+        object-fit: cover;
+        display:block;
+        opacity: 0.9;
+    }
+    /* -------------------------------------------------------- */
+    /* Footer */
+    footer {
+        background:#545454;
+        color:white;
+    }
+    footer div {
+        padding: 1rem 2rem;
+    }
+    #info p:first-of-type {
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    footer ul {
+        list-style: none;
+    }
+    footer li {
+        line-height: 1.5rem;
+    }
+    footer a {
+        color:white;
+        text-decoration:none;
+    }
+    footer ul a:before {
+        content: "\2192";
+        padding-right:3px;
+        font-size: 0.8rem;
+    }
+    footer #socialmedia a:before {
+        content: none;
+    }
+    footer #socialmedia {
+        display:flex;
+    }
+    footer #socialmedia a {
+        display: block;
+        padding: 0 5px;
+    }
+    footer div:nth-of-type(1) {
+        border-bottom: 1px solid #eee;
+    }
+    footer div:nth-of-type(3) {
+        border-top: 1px solid #eee;
+    }
+    /* -------------------------------------------------------- */
+    /* Formular */
+    form input, form textarea {
+        background: none;
+        border:none;
+        background-color: white;
+        font-family: 'Crimson Text', Georgia, serif;
+        width: 100%;
+        outline: none;
+        padding: 5px;
+        border-bottom: 2px solid rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        border-bottom: 2px solid var(--keycolor);
+        border-left:2px solid rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        border-left:2px solid var(--keycolor);
+    }
+    form input[type="radio"], form input[type="checkbox"] {
+        width: auto;
+    }
+    form input[type="submit"] {
+        background-color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        background-color: var(--keycolor);
+        color:white;
+        padding: 8px 20px;
+        font-weight: 700;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5rem;
+        max-width: 200px;
+    }
+
+    /* ----------------------------------------- */
+    /* Top-Button */
+    #backtop {
+        position:fixed;
+        right: 1rem;
+        bottom: 1rem;
+        display:none;
+    }
+    #backtop a {
+        text-decoration: none;
+        display:block;
+    }
+    .fa-arrow-circle-up {
+        color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        color: var(--keycolor);
+        font-size:2rem;
+    }
+    /* --------------------------------------------------------
+    /* Externe Elemente
+    
+    /* ----------------------------------------- */
+    /* Slick-Slider */
+    /* https://kenwheeler.github.io/slick/#go-get-it --> Konfiguration "Adaptive Height */
+    .one-time p {
+        text-align: center;
+    }
+    /* Einschweben Scroll-Animation */
+    /* einblenden von links ---------------------- */
+    .fadescroll {
+        transition: all 800ms;
+        opacity: 0;
+    }
+    .go {
+        width: 100%;
+        max-height: 30vh;
+        object-fit: cover;
+        margin:2rem 0;
+        transform: translateX(0);
+        opacity: 0.9;
+    }
+    /* ----------------------------------------- */
+    /* Coookie-Banner */
+    #mbmcookie {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #eee;
+        padding: 20px;
+        font-size: 1rem;
+    }
+    #mbmcookie a.button {
+        background-color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        background-color: var(--keycolor);
+        color:white;
+        padding: 8px 20px;
+        margin-left: 10px;
+        font-weight: bold;
+        float: right;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5rem;
+    }
+    #mbmcookie p.cookiemessage {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }   
+    /* ----------------------------------------- */
+    /* Crazy Layla - in der mobilen Variante kein Hover-Effekt und kein float mehr, stattdessen untereinander */
+    .grid {
+        width: 90%;
+        margin:auto;
+    }
+    /* Common style */
+    .grid figure {
+        position: relative;
+        overflow: hidden;
+        margin: 10px auto;
+        text-align: center;
+        background:black;
+        }
+    .grid figure img {
+        width: 100%;
+        height:200px;
+        margin:auto;
+        object-fit: cover;
+        opacity: 0.6;
+        display:block;
+        }
+    .grid figure figcaption {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width:100%;
+    }
+    .grid figure h2 span {
+        font-weight: 700;
+    }
+    .grid figure h2,
+    .grid figure p {
+        margin: auto;
+        padding-top: 10px;
+    }
+    .grid figure p {
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+    }
+
+    /* Number-Counter Animation */
+    /* Von http://www.i-visionblog.com/2014/11/jquery-animated-number-counter-from-zero-to-value-jquery-animation.html */
+
+    .facts {
+        width: 80%;
+        margin:auto;
+        text-align: center;
+    }
+    .facts div p {
+        margin-top:5px;
+    }
+    #counter {
+        width: 100px;
+        height: 100px;
+        background: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        background: var(--keycolor);
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        margin:auto;
+    }
+    .count {
+        line-height: 100px;
+        color:white;
+        margin-left:30px;
+        font-size:1.5rem;
+        font-family: 'Crimson Text', Georgia, serif;
+    }
+    /*
+
+    /* -------------------------------------------------------- */
+    /* Freie Klassen */
+    .wrapper {
+        padding: 0 2rem;
+        margin:auto;
+    }
+}
+        
+/* ---------- TABLET ---------- */
+@media screen and (min-width:561px) and (max-width:950px) {
+     
+    /* -------------------------------------------------------- */
+    /* ----------------------------------------- */
+    /* Hero-Header der Startseite */
+    header {
+        min-height: 60vh;
+        background: url(../img/medium/P5240055_16-9.jpg) no-repeat center center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    #claim {
+        color: #fff;
+        position: absolute;
+        left:50vw;
+        top:30vh;
+        transform: translateX(-50%) translateY(-50%);
+        padding:11rem;
+        text-align: center;
+    }
+    #claim p:first-of-type {
+        font-size: 8rem;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+    }
+    #claim p:last-of-type {
+        font-size: 1rem;
+    }
+    #claim p:first-of-type {
+        transform: translateX(16px); /* Um den Punkt hinter Harzlust. auszugleichen */
+    }
+    #home {
+        display:none;
+    }
+    /* -------------- */
+    /* Hero-Header der Unterseiten */
+    .subpage #home {
+        display:block;
+    }
+    .subpage #home a {
+        color: #fff;
+        position: absolute;
+        text-decoration: none;
+        left:1rem;
+        top:1rem;
+        font-size: 2rem;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+    }
+    .subpage #claim {
+        display:none;
+    } 
+
+    /* ----------------------------------------- */
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        line-height: 40px;
+        background: rgb(255, 255, 255);
+        z-index: 99;
+    }
+    nav ul {
+        list-style: none;
+        display:flex;
+        justify-content: center;
+    }
+    nav li {
+        flex-basis: 25%;
+    }
+    nav a {
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        color: black;
+    }
+    nav a:before {
+        content:"\2193";
+        padding-right:3px;
+        font-size: 0.8rem;
+    }
+    /* -------------- */
+    /* Navigation der Unterseiten */
+    .subpage nav {
+        display:none;
+    }
+    /* -------------------------------------------------------- */
+    /* Inhalt von oben nach unten */
+    h1,h2,h3 {
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        margin: 1rem auto;
+        text-align: center;
+    }
+    article p {
+        line-height: 1.5rem;
+        margin:1rem auto 1.3rem auto;
+    }
+    main a {
+        color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        color: var(--keycolor)
+    }
+    article ul {
+        list-style-type: none;
+    }
+    article ul li {
+        margin: 1rem auto;
+    }
+    article ul a:before {
+        content: "\2192";
+        padding-right:3px;
+        font-size: 0.8rem;
+    }
+    article ul a {
+        text-decoration: none;
+    }
+    /* -------------- */
+    /* Inhalt auf Unterseiten */
+    .subpage h1 {
+        position:absolute;
+        top:25vh;
+        left:50vw;
+        color: #fff;
+        z-index: 100;
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 4rem;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+    }
+    /* ----------------------------------------- */
+    /* Outdoor-Packages (in mobiler Variante nicht alternierend, sondern untereinder */
+    .alternierend .clearfix {
+        position:relative;
+        width: 90%;
+        margin:auto;
+    }
+    .alternierend img {
+        width: 100%;
+        margin:auto;
+        height:200px;
+        object-fit: cover;
+        display:block;
+        opacity: 0.6;
+    }
+    /* Weil IE11 object-fit nicht erkennt: */
+    @media screen and (min-width:0\0) { /* für ie 9 10 11 */
+        .alternierend img {
+            height: auto;
+        }
+    }
+    .alternierend h3 {
+        position:absolute;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: black;
+        font-weight: 700;
+    }
+    /* -------------------------------------------------------- */
+    /* Footer */
+    footer {
+        display:flex;
+        justify-content: center;
+        background:#545454;
+        color:white;
+    }
+    footer div {
+        padding: 1rem;
+    }
+    #info {
+        flex-basis:50%;
+    }
+    #info p:first-of-type {
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    footer div:nth-of-type(2), footer div:nth-of-type(3) {
+        flex-basis:25%;
+    }
+    footer ul {
+        list-style: none;
+    }
+    footer li {
+        line-height: 2rem;
+    }
+    footer a {
+        color:white;
+        text-decoration:none;
+    }
+    footer ul a:before {
+        content: "\2192";
+        padding-right:3px;
+        font-size: 0.8rem;
+    }
+    footer #socialmedia a:before {
+        content: none;
+    }
+    footer #socialmedia {
+        display:flex;
+    }
+    footer #socialmedia a {
+        display: block;
+        padding: 0 5px;
+    }
+    footer div:nth-of-type(1) {
+        border-right: 1px solid #eee;
+    }
+    footer div:nth-of-type(3) {
+        border-left: 1px solid #eee;
+    }
+
+    /* -------------------------------------------------------- */
+    /* Formular */
+    form {
+        margin: 5px 0;
+        padding: 1rem 0;
+    }
+    form input, form textarea {
+        background: none;
+        border:none;
+        background-color: white;
+        font-family: 'Crimson Text', Georgia, serif;
+        width: 100%;
+        outline: none;
+        padding: 5px;
+        border-bottom: 2px solid rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        border-bottom: 2px solid var(--keycolor);
+        border-bottom: 2px solid rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        border-left:2px solid var(--keycolor);
+    }
+    form input[type="radio"], form input[type="checkbox"] {
+        width: auto;
+    }
+    form input[type="submit"] {
+        background-color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        background-color: var(--keycolor);
+        color:white;
+        padding: 8px 20px;
+        font-weight: 700;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5rem;
+        max-width: 200px;
+    }
+    .datenschp {
+        margin-top: 10px;
+        width: 100%;
+        font-size: 1rem;
+    }
+    /* ----------------------------------------- */
+    /* Top-Button */
+    #backtop {
+        position:fixed;
+        right: 1rem;
+        bottom: 1rem;
+        display:none;
+    }
+    #backtop a {
+        text-decoration: none;
+        display:block;
+    }
+    .fa-arrow-circle-up {
+        color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        color: var(--keycolor);
+        font-size:2rem;
+    }
+    /* -------------------------------------------------------- */
+    /* Externe Elemente */
+
+    /* ----------------------------------------- */
+    /* Slick-Slider */
+    /* https://kenwheeler.github.io/slick/#go-get-it --> Konfiguration "Adaptive Height */
+
+    .one-time img {
+        width: 100%;
+        margin:auto;
+    }
+    .one-time p {
+        text-align: center;
+    }
+    /* Einschweben Scroll-Animation 
+    einblenden von links ---------------------- */
+    .fadescroll {
+        transition: all 800ms;
+        opacity: 0;
+    }
+    .go {
+        width: 100%;
+        max-height: 50vh;
+        object-fit: cover;
+        margin:2rem 0;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    /* Weil IE11 object-fit nicht erkennt: */
+    @media screen and (min-width:0\0) { /* für ie 9 10 11 */
+        .go {
+            max-height: 100%;
+        }
+    }
+    /* ----------------------------------------- */
+    /* Cookie-Banner */
+    #mbmcookie {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #eee;
+        padding: 20px;
+        font-size: 1rem;
+    }
+    #mbmcookie a.button {
+        background-color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        background-color: var(--keycolor);
+        color:white;
+        padding: 8px 20px;
+        margin-left: 10px;
+        font-weight: bold;
+        float: right;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5rem;
+    }
+    #mbmcookie p.cookiemessage {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }   
+        
+    /* ----------------------------------------- */
+    /* Crazy Layla - in der mobilen Variante kein Hover-Effekt und kein float mehr, stattdessen untereinander */
+    .grid {
+        position: relative;
+        margin: 0 auto;
+    }
+    /* Common style */
+    .grid figure {
+        position: relative;
+        overflow: hidden;
+        margin: 10px auto;
+        width: 90%;
+        text-align: center;
+        max-height:200px;
+        background:black;
+        }
+    .grid figure img {
+        position: relative;
+        display: block;
+        width: 100%;
+        opacity: 0.6;
+        }
+    .grid figure figcaption {
+        padding: 2em;
+        color: #fff;
+        font-size: 1.25em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .grid figure h2 span {
+        font-weight: 700;
+    }
+    .grid figure h2,
+    .grid figure p {
+        margin: auto;
+        padding-top: 10px;
+    }
+    .grid figure p {
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+    }
+    /* Individual effects */
+    /* Layla (Tablet: kein Hover-Effekt, dafür bleiben die Rahmen)  */
+   
+    figure.effect-layla figcaption::before,
+    figure.effect-layla figcaption::after {
+        position: absolute;
+        content: '';
+    }
+    figure.effect-layla figcaption::before {
+        top: 20px;
+        right: 10px;
+        bottom: 20px;
+        left: 10px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+    figure.effect-layla figcaption::after {
+        top: 10px;
+        right: 20px;
+        bottom: 10px;
+        left: 20px;
+        border-right: 1px solid #fff;
+        border-left: 1px solid #fff;
+    }
+
+    /* ----------------------------------------- */
+    /* Number-Counter Animation */
+    /* Von http://www.i-visionblog.com/2014/11/jquery-animated-number-counter-from-zero-to-value-jquery-animation.html */
+
+    .facts {
+        width: 80%;
+        margin:auto;
+        text-align: center;
+    }
+    .facts div p {
+        margin-top:5px;
+    }
+    #counter {
+        width: 100px;
+        height: 100px;
+        background: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+        background: var(--keycolor);
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        margin:auto;
+    }
+    .count {
+        line-height: 100px;
+        color:white;
+        margin-left:30px;
+        font-size:1.5rem;
+        font-family: 'Crimson Text', Georgia, serif;
+    }
+    /* -------------------------------------------------------- */
+    /* Freie Klassen */
+    .wrapper {
+        padding: 0 2rem;
+        margin:auto;
+    }
+}
+
+/* ---------- DESKTOP ---------- */
+@media screen and (min-width:951px) {
+        /* -------------------------------------------------------- */
+        /* ----------------------------------------- */
+        /* Hero-Header der Startseite */
+        header {
+            min-height: 100vh;
+            background: url(../img/big/P5240055_16-9.jpg) no-repeat center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        #claim {
+            color: #fff;
+            position: absolute;
+            left:50vw;
+            top:50vh;
+            transform: translateX(-50%) translateY(-50%);
+            padding:11rem;
+            text-align: center;
+        }
+        #claim p:first-of-type {
+            font-size: 10rem;
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+        }
+        #claim p:last-of-type {
+            font-size: 1.5rem;
+        }
+        #claim p:first-of-type {
+            transform: translateX(1.5rem); /* "Harzlust" ein Stück nach rechts verschieben, um den Punkt auszugleichen */
+        }
+        #home {
+            display:none;
+        }
+        /* -------------- */
+        /* Hero-Header der Unterseiten */
+        .subpage header {
+            min-height:55vh;
+        }
+        .subpage #home {
+            display:block;
+        }
+        .subpage #home a {
+            color: #fff;
+            position: absolute;
+            text-decoration: none;
+            left:1rem;
+            top:1rem;
+            font-size: 2rem;
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+        }
+        .subpage #claim {
+            display:none;
+        }
+        
+        /* ----------------------------------------- */
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            line-height: 40px;
+            background: rgb(255, 255, 255);
+            z-index: 99;
+        }
+        nav ul {
+            list-style: none;
+            display:flex;
+            justify-content: center;
+        }
+        nav li {
+            flex-basis: 25%;
+        }
+        nav a {
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            color: black;
+        }
+        nav a:before {
+            content:"\2193";
+            padding-right:3px;
+            font-size: 0.8rem;
+        }
+        nav ul a:hover,
+        nav ul a.akt {
+            color:rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            color:var(--keycolor);
+        }
+        
+        /* -------------- */
+        /* Navigation der Unterseiten */
+        .subpage nav {
+            display:none;
+        }
+        /* -------------------------------------------------------- */
+        /* Inhalt von oben nach unten */
+        h1,h2,h3 {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 400;
+            margin: 1rem auto;
+            text-align: center;
+        }
+        article p {
+            line-height: 1.5rem;
+            margin:1rem auto 1.3rem auto;
+        }
+        main a {
+            color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            color: var(--keycolor)
+        }
+        article ul {
+            list-style-type: none;
+        }
+        article ul li {
+            margin: 1rem auto;
+        }
+        article ul a:before {
+            content: "\2192";
+            padding-right:3px;
+            font-size: 0.8rem;
+        }
+        article ul a {
+            text-decoration: none;
+        }
+        /* -------------- */
+        /* Inhalt auf Unterseiten */
+        .subpage h1 {
+            position:absolute;
+            top:25vh;
+            left:50vw;
+            color: #fff;
+            z-index: 100;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 5rem;
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+        }
+        /* ----------------------------------------- */
+        /* Alternierende Anordnung (Outdoor-Packages) */
+        .alternierend div:nth-child(odd) img {
+            float:left;
+            margin-right: 1rem;
+        }
+        .alternierend div:nth-child(odd) h3 {
+            text-align: left;
+        }
+        .alternierend div:nth-child(even) img {
+            float:right;
+            margin-left: 1rem;
+        }
+        .alternierend div:nth-child(even) h3 {
+            text-align: right;
+        }
+        .alternierend img {
+            max-width: 300px;
+        }
+        .alternierend div {
+            padding: 2rem 0;
+        }
+        .alternierend p {
+            text-align: justify;
+        }
+        /* -------------- */
+        /* Filter-Effekt im Outdoor-Packages-Modul */
+        .alternierend img {
+            filter: grayscale(0.8);
+        }
+        .alternierend div:hover img {
+            filter: grayscale(0);
+            transition: 0.3s;
+        }
+        
+        /* Bannerbilder zwischen den Articles */
+        /* Einschweben Scroll-Animationeinblenden von links ----------------------*/
+        .fadescroll {
+            transition: all 800ms;
+            opacity: 0;
+        }
+        .go {
+            width: 100%;
+            max-height: 50vh;
+            object-fit: cover;
+            margin:2rem 0;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Weil IE11 object-fit nicht erkennt: */
+        @media screen and (min-width:0\0) { /* für ie 9 10 11 */
+            .go {
+                max-height: 100%;
+            }
+        }
+
+
+        /* -------------------------------------------------------- */
+        /* Formular */
+        form p {
+            margin: 5px 0;
+            padding: 1rem 0;
+        }
+        form input, form textarea {
+            background: none;
+            border:none;
+            background-color: white;
+            font-family: 'Crimson Text', Georgia, serif;
+            width: 100%;
+            outline: none;
+            padding: 5px;
+            border-bottom: 2px solid rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            border-bottom: 2px solid var(--keycolor);
+            border-left:2px solid rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            border-left:2px solid var(--keycolor);
+        }
+        form input:focus, form textarea:focus {
+            background: #fff;
+        }
+        form input[type="radio"], form input[type="checkbox"] {
+            width: auto;
+        }
+        form input[type="submit"] {
+            cursor: pointer;
+            background-color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            background-color: var(--keycolor);
+            color:white;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.5rem;
+            max-width: 200px;
+        }
+        .datenschp {
+            margin-top: 10px;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        /* ----------------------------------------- */
+        /* Top-Button */
+        #backtop {
+            position:fixed;
+            right: 1rem;
+            bottom: 1rem;
+            display:none;
+        }
+        #backtop a {
+            text-decoration: none;
+            display:block;
+        }
+        .fa-arrow-circle-up {
+            color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            color: var(--keycolor);
+            font-size:4rem;
+        }
+                /* -------------------------------------------------------- */
+        /* Footer */
+        footer {
+            display:flex;
+            justify-content: center;
+            background:#545454;
+            color:white;
+        }
+        footer div {
+            padding: 1rem;
+        }
+        #info {
+            flex-basis:50%;
+        }
+        #info p:first-of-type {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 400;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        footer div:nth-of-type(2), footer div:nth-of-type(3) {
+            flex-basis:25%;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer li {
+            line-height: 2rem;
+        }
+        footer a {
+            color:white;
+            text-decoration:none;
+        }
+        footer ul a:before {
+            content: "\2192";
+            padding-right:3px;
+            font-size: 0.8rem;
+        }
+        footer #socialmedia a:before {
+            content: none;
+        }
+        footer #socialmedia {
+            display:flex;
+        }
+        footer #socialmedia a {
+            display: block;
+            padding: 0 5px;
+        }
+        footer div:nth-of-type(1) {
+            border-right: 1px solid white;
+        }
+        footer div:nth-of-type(3) {
+            border-left: 1px solid white;
+        }
+
+        /* -------------------------------------------------------- */
+        /* Externe Elemente */
+        
+        /* ----------------------------------------- */
+        /* Slick-Slider */
+        /* https://kenwheeler.github.io/slick/#go-get-it --> Konfiguration "Adaptive Height*/ 
+        .one-time img {
+            width: 100%;
+            margin:auto;
+        }
+        .one-time p {
+            text-align: center;
+        }
+                
+        /* ----------------------------------------- */
+        /* Coookie-Banner */
+        #mbmcookie {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #eee;
+            padding: 20px;
+            font-size: 1rem;
+        }
+        #mbmcookie a.button {
+            cursor: pointer;
+            background-color: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            background-color: var(--keycolor);
+            color:white;
+            padding: 8px 20px;
+            margin-left: 10px;
+            font-weight: bold;
+            float: right;
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.5rem;
+        }
+        #mbmcookie p.cookiemessage {
+            display: block;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ----------------------------------------- */
+        /* Crazy Layla Hover-Effekt-Boxen*/
+        .grid {
+            position: relative;
+            margin: 0 auto;
+            padding: 1em 0 4em;
+            max-width: 1000px;
+            list-style: none;
+            text-align: center;
+        }
+        /* Common style */
+        .grid figure {
+            position: relative;
+            float: left;
+            overflow: hidden;
+            margin: 10px 1%;
+            min-width: 320px;
+            max-width: 480px;
+            max-height: 360px;
+            width: 48%;
+            background:rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            background:var(--keycolor);
+            text-align: center;
+            cursor: pointer;
+        }
+        .grid figure img {
+            position: relative;
+            display: block;
+            min-height: 100%;
+            max-width: 100%;
+            opacity: 0.9;
+        }
+        .grid figure figcaption {
+            padding: 2em;
+            color:white;
+            text-transform: uppercase;
+            font-size: 1.25em;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .grid figure figcaption::before,
+        .grid figure figcaption::after {
+            pointer-events: none;
+        }
+        .grid figure figcaption,
+        .grid figure figcaption > a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Anchor will cover the whole item by default */
+        /* For some effects it will show as a button */
+        .grid figure h2 {
+            word-spacing: -0.15em;
+            font-weight: 300;
+        }
+        .grid figure h2 span {
+            font-weight: 800;
+        }
+        .grid figure h2,
+        .grid figure p {
+            margin: 0;
+        }
+        .grid figure p {
+            letter-spacing: 1px;
+            font-size: 68.5%;
+        }
+        /* Individual effects */
+        /*---------------*/
+        /***** Layla *****/
+        /*---------------*/
+        figure.effect-layla {
+            background:black;
+        }
+        figure.effect-layla img {
+            height: 390px;
+        }
+        figure.effect-layla figcaption {
+            padding: 3em;
+        }
+        figure.effect-layla figcaption::before,
+        figure.effect-layla figcaption::after {
+            position: absolute;
+            content: '';
+            opacity: 0;
+        }
+        figure.effect-layla figcaption::before {
+            top: 50px;
+            right: 30px;
+            bottom: 50px;
+            left: 30px;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            -webkit-transform: scale(0,1);
+            transform: scale(0,1);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+        figure.effect-layla figcaption::after {
+            top: 30px;
+            right: 50px;
+            bottom: 30px;
+            left: 50px;
+            border-right: 1px solid #fff;
+            border-left: 1px solid #fff;
+            -webkit-transform: scale(1,0);
+            transform: scale(1,0);
+            -webkit-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+        }
+        figure.effect-layla h2 {
+            padding-top: 26%;
+            -webkit-transition: -webkit-transform 0.35s;
+            transition: transform 0.35s;
+        }
+        figure.effect-layla p {
+            padding: 0.5em 2em;
+            text-transform: none;
+            opacity: 0;
+            -webkit-transform: translate3d(0,-10px,0);
+            transform: translate3d(0,-10px,0);
+        }
+        figure.effect-layla img,
+        figure.effect-layla h2 {
+            -webkit-transform: translate3d(0,-30px,0);
+            transform: translate3d(0,-30px,0);
+        }
+        figure.effect-layla img,
+        figure.effect-layla figcaption::before,
+        figure.effect-layla figcaption::after,
+        figure.effect-layla p {
+            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+            transition: opacity 0.35s, transform 0.35s;
+        }
+        figure.effect-layla:hover img {
+            opacity: 0.7;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+        figure.effect-layla:hover figcaption::before,
+        figure.effect-layla:hover figcaption::after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        figure.effect-layla:hover h2,
+        figure.effect-layla:hover p {
+            opacity: 1;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+        figure.effect-layla:hover figcaption::after,
+        figure.effect-layla:hover h2,
+        figure.effect-layla:hover p,
+        figure.effect-layla:hover img {
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+        /* ----------------------------------------- */
+        /* Number-Counter Animation */
+        /* Von http://www.i-visionblog.com/2014/11/jquery-animated-number-counter-from-zero-to-value-jquery-animation.html */
+        #counter {
+            width: 100px;
+            height: 100px;
+            background: rgb(43, 135, 34); /* Als Fallback für IE11, der CSS Variablen nicht kann*/
+            background: var(--keycolor);
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            margin:5px;
+        }
+        .count {
+            line-height: 100px;
+            color:white;
+            margin-left:30px;
+            font-size:1.5rem;
+            font-family: 'Crimson Text', Georgia, serif;
+        }
+        .facts {
+            display:flex;
+            justify-content: space-around;
+        }
+        .facts > div {
+            max-width:250px;
+        }
+        
+        /* -------------------------------------------------------- */
+        /* Freie Klassen */
+        .wrapper {
+            max-width: 900px;
+            padding: 1rem;
+            margin:auto;
+        }
+        .clearfix:after {
+            content:"";
+            display:block;
+            clear:both;
+        }
+        
+}
