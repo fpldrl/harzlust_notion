@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /slick/
+Disallow: /fontawesome-free-5.10.1-web/
+Disallow: /phpform_dank.html/
+Disallow: /phpform_error.html/
+
+Sitemap: http://harzlust.com/sitemap.xml
